@@ -7,7 +7,7 @@ After writing your function uncomment the matching function reference at the bot
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
 function helloWorld() {
-
+        return 'Hello World!';
 }
 
 /*
@@ -23,7 +23,19 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
+    if((num % 3 == 0) && (num % 5 != 0)){
+        return 'Lambda';
+    }
+    if((num % 3 != 0) && (num % 5 == 0)){
+        return 'School';
+    }
+    if((num % 3 == 0) && (num % 5 == 0)){
+        return 'Lambda School';
+    }
+    if((num % 3 != 0) || (num % 5 !=  0)){
+        return num; 
+    }
 
 }
 
@@ -38,7 +50,15 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
+function longestString(strs) {
+
+    var highest = strs[0];
+    for(var i in strs){
+        if(strs[i].length > highest.length) {
+            highest = strs[i];
+        }
+    }
+    return highest;
 
 }
 
@@ -63,7 +83,17 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
+function computeUserAverageAge(users) {
+    //int age = sum of the users age / total users;
+    //return age;
+    var sum=0,i;
+    var totalusers=0;
+    
+    for(i in users){
+        sum = sum+users[i].age;
+        totalusers++;
+    }
+    return Math.ceil(sum/totalusers);
 
 }
 
